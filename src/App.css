@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+body { 
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  background-color: rgb(196, 118, 213);
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+}
+
+.card {
+  display: inherit;
+  flex-direction: column;
+  background-color: white;
+  width: min(500px, 85%);
+  padding: 15px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 1px 1px 10px 6px rgba(0, 0, 0, 0.259);
+}
+
+.card__text, .card__author {
+  text-align: center;
+  margin: 10px 50px;
+}
+
+.card__btn {
+  display: flex;
+  position: relative;
+  left: 50%;
+  transform: translateX(-100%);
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  padding: 0px 5px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+}
+
+.card__btn span {
+  margin-bottom: 2px;
+}
