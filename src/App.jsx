@@ -1,23 +1,25 @@
 import { useState } from 'react'
 import './App.css'
 import quotes from '../json/quotes.json'
-import Card from '../components/Card'
+import QuoteBox from '../components/QuoteBox'
+import Button from '../components/Button'
 
 const arrayColors = [
-  '#3FA157','#9FFFAF','#6C9026',
-  '#655045','#C3A913','#AE8305',
-  '#9F14B0','#C0A8DB','#EB395C',
-  '#8FE528','#6C1167','#BFA0A6',
-  '#E96308','#FE2743','#58258D',
-  '#1D0521','#CB76F3','#353DCF',
-  '#FFACCA','#17B16F','#B1F6AD',
-  '#E797A5','#A64E2C','#97E352',
-  '#2DBD90','#121BE5','#73A9C2',
-  '#C6C2EE','#8D3202','#F52981'
+  '#3FA157', '#9FFFAF', '#6C9026',
+  '#655045', '#C3A913', '#AE8305',
+  '#9F14B0', '#C0A8DB', '#EB395C',
+  '#8FE528', '#6C1167', '#BFA0A6',
+  '#E96308', '#FE2743', '#58258D',
+  '#1D0521', '#CB76F3', '#353DCF',
+  '#FFACCA', '#17B16F', '#B1F6AD',
+  '#E797A5', '#A64E2C', '#97E352',
+  '#2DBD90', '#121BE5', '#73A9C2',
+  '#C6C2EE', '#8D3202', '#F52981'
 ]
 
 function App() {
-  // console.log (quotes.length)
+
+  //Get a random index
   const randomNumber = array => {
     return Math.floor(Math.random() * array.length)
   }
@@ -29,6 +31,8 @@ function App() {
 
   let randomIndexQuotes = randomNumber(quotes)
   let randomIndexColors = randomNumber(arrayColors)
+
+  //Get aleatory quotes and colors
 
   const [quoteRandom, setQuoteRandom] = useState(getElementRandom(quotes))
   const [colorRandom, setColorRandom] = useState(getElementRandom(arrayColors))
@@ -44,14 +48,19 @@ function App() {
 
   return (
     <div className="App" style={appStyle}>
-      <Card
-        quoteRandom={quoteRandom}
-        colorRandom={colorRandom}
-        getElementRandom={getElementRandom}
-        quotes={quotes}
-        arrayColors={arrayColors}
-        clickButton={clickButton}
-      />
+      <div className='quotebox'>
+        <QuoteBox
+          quoteRandom={quoteRandom}
+          colorRandom={colorRandom}
+          getElementRandom={getElementRandom}
+          quotes={quotes}
+          arrayColors={arrayColors}
+        />
+        <Button
+          clickButton={clickButton}
+          colorRandom={colorRandom}
+        />
+      </div>
     </div>
   )
 }
